@@ -66,6 +66,11 @@ func NewReader(rd io.ReadSeeker, size int64) (wav *Reader, err error) {
 	return wav, nil
 }
 
+// GetDumbReadSeeker ...
+func (wav *Reader) GetDumbReadSeeker() io.ReadSeeker {
+	return wav.input
+}
+
 func (wav *Reader) parseHeaders() (err error) {
 
 	wav.header = &riffHeader{}
